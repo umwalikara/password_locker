@@ -7,3 +7,13 @@ class Credential:
         
     def save_credential(self):
         Credential.credential_list.append(self)
+        
+    def delete_credential(self):
+        Credential.credential_list.remove(self)
+    
+    @classmethod
+    def find_by_accountname(accountname,username,):
+        for credential in accountname.credential_list:
+            if credential.accountname==accountname:
+                return accountname
+
