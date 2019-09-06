@@ -9,6 +9,9 @@ def save_user(user): #function save user
 def del_user(user): #function to delete user
     user.delete_user
 
+def find_user(username): #finding user
+    return User.find_by_username(username)
+
 
 
 from credentials import Credential
@@ -21,3 +24,6 @@ def save_credential(credential): #function to save crede
 
 def del_credential(credential): #function to delete crede
     credential.delete_credential
+
+def find_credential(accountname): #finding credential
+    return Credential.find_by_accountname(accountname)
