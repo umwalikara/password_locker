@@ -76,10 +76,45 @@ def main():
             print(f"welcome:{username} to your Account")
             print('\n')
 
-            
+        while True:
+            print("v: view your saved credentials")
+            print("c: create new credential")
+            print("d: delete credential")
+            print("l: log out")
+
+            if choose=='c':
+                while True:
+                    print("enter accountname")
+                    accountname=input()
+                    print("enter password")
+                    print("to generate a random password, enter 'gp' or to create password, enter 'cc' ")
+                    keyword=input().lower()
+                    if keyword=="gp":
+                        password=random.randit(22222,22222)
+                        print(f"account: {accountname}")
+                        print(f"username: {username}")
+                        print(f"password: {password}")
+                        print('\n')
+
+                    elif keyword=='cc':
+                        print("create your password")
+                        accountname=input()
+                        print(f"account{accountname}")
+                        print(f"username{username}")
+                        print(f"password{password}")
+                        print('\n')
+
+                    else:
+                        print("please enter a valid code")
+                        new_credential(new_credential(accountname, username, password))
+                    # elif choise=='n':
+                    #     break
+
+                    
 
 
 
 
-# if__name__=='__main__':
-#     main()
+
+if__name__=='__main__':
+    main()
