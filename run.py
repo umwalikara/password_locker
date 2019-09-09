@@ -41,3 +41,45 @@ def check_existing_credential(accountname): #Function that check if a contact ex
 
 def display_credential(): #Function that returns all the saved contacts
     return Credential.display_credential()
+
+def main():
+    print("Hello, Welcome to your Password_lock. What is your name")
+    username=input()
+    print(f"Hello{username}.what would you like to do?")
+    print('\n')
+
+    while True:
+        print("use these short codes:cc-create a new password, dc-display password, fd-find password, ex-exit the password list")
+        short_code=input().lower()
+
+        if short_code=="cc":
+            print("username")
+            username=input()
+            print("password")
+            password=input()
+
+            print("congratirations{username}you have created a new account.")
+            print('\n')
+            print("enter username")
+            username=input()
+            print("enter password")
+            password=input()
+
+        while username!=username or password!=password:
+            print("you entered wrong username or password")
+            print("username")
+            username=input()
+            print("your password")
+            password=input()
+
+        else:
+            print(f"welcome:{username} to your Account")
+            print('\n')
+
+            
+
+
+
+
+# if__name__=='__main__':
+#     main()
