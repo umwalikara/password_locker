@@ -1,5 +1,5 @@
 # Password Locker
-#### This project was generated with Python3.6., {6,sept,2019}
+#### This project was generated with Python3.6., 6,sept,2019
 #### By **UMWALI Clara**
 ## Description
 password locker is a terminal run python application that allows users to store details i.e. usernames and passwords of their various accounts.
