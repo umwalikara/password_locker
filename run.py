@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+import random
 from user import User
 def create_user(username, password):
     new_user = User(username,password)
@@ -49,7 +50,7 @@ def main():
     print('\n')
 
     while True:
-        print("use these short codes:cp-create a new password, li-login, ex-exit the password list")
+        print("use these short codes:cp-create a new account, li-login to your account, ex-exit the account")
         short_code=input().lower()
 
         if short_code=="cp":
@@ -81,22 +82,24 @@ def main():
             print("c: create new credential")
             print("d: delete credential")
             print("l: log out")
+            Choose=input().lower()
 
-            if option =='c':
+            if Choose =='c':
                 while True:
                     print("enter accountname")
                     accountname=input()
                     print("enter password")
-                    print("to generate a random password, enter 'gp' or to create password, enter 'cc' ")
+                    print("to generate a random password, enter 'gp' or to create password, enter 'cp' ")
                     keyword=input().lower()
                     if keyword=="gp":
-                        password=random.randit(22222,22222)
+                        password=random.randint(22222,22222)
                         print(f"account: {accountname}")
                         print(f"username: {username}")
                         print(f"password: {password}")
                         print('\n')
+                        break
 
-                    elif keyword=='cc':
+                    elif keyword=='cp':
                         print("create your password")
                         accountname=input()
                         print(f"account{accountname}")
@@ -109,7 +112,7 @@ def main():
                         new_credential(new_credential(accountname, username, password))
                     # elif choise=='n':
                     #     break
-            if option=='v':
+            if Choose=='v':
                 while True:
                     print("a list of your credentials")
                     if display_credential():
@@ -125,7 +128,7 @@ def main():
                         print('\n')
                         break
 
-            if option=='d':
+            elif Choose=='d':
                 while True:
                     print("Choose credential to delete")
                     search_name=input()
@@ -144,7 +147,15 @@ def main():
                         else:
                             print("your credential does not exist.")
                     
-
+            elif Choose=='l':
+                print("are you sure, you want to log out? y/n")
+                logout-input().lower()
+                if logout=='y':
+                    print("logout successfully.")
+                    break
+                else:
+                    logout=='n'
+                    continue
 
 
 
