@@ -49,16 +49,16 @@ def main():
     print('\n')
 
     while True:
-        print("use these short codes:cc-create a new password, dc-display password, fd-find password, ex-exit the password list")
+        print("use these short codes:cp-create a new password, li-login, ex-exit the password list")
         short_code=input().lower()
 
-        if short_code=="cc":
+        if short_code=="cp":
             print("username")
             username=input()
             print("password")
             password=input()
 
-            print("congratirations{username}you have created a new account.")
+            print(f"congratirations {username} you have created a new account.")
             print('\n')
             print("enter username")
             username=input()
@@ -109,7 +109,40 @@ def main():
                         new_credential(new_credential(accountname, username, password))
                     # elif choise=='n':
                     #     break
-            # if
+            if option=='v':
+                while True:
+                    print("a list of your credentials")
+                    if display_credential():
+
+                        for credential in display_credential():
+                            print(f"AccountName:{credential.accountname}")
+                            print(f"UserName:{credential.username}")
+                            print(f"Password:{credential.password}")
+
+                    else:
+                        print('\n')
+                        print("you don't seem to have any credential yet")
+                        print('\n')
+                        break
+
+            if option=='d':
+                while True:
+                    print("Choose credential to delete")
+                    search_name=input()
+                    if check_existing_credential(search_name):
+
+                        search_credential=find_credential(search_name)
+                        print(f"Accountname:{search_credential.accountname}\n UserName:{search_credential.username}\n Password:{search_credential.password}")
+                        print("delete? y/n")
+                        sure=input().lower()
+                        if sure=='y':
+                            delete_credential(search_credential)
+                            print("Account deleted")
+                            break
+                        elif sure=='n':
+                            continue
+                        else:
+                            print("your credential does not exist.")
                     
 
 
