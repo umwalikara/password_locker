@@ -82,7 +82,7 @@ def main():
             print("d: delete credential")
             print("l: log out")
 
-            if choose=='c':
+            if option =='c':
                 while True:
                     print("enter accountname")
                     accountname=input()
@@ -109,12 +109,12 @@ def main():
                         new_credential(new_credential(accountname, username, password))
                     # elif choise=='n':
                     #     break
-
+            # if
                     
 
 
 
 
 
-if__name__=='__main__':
+if __name__=='__main__':
     main()
