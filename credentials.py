@@ -17,3 +17,10 @@ class Credential:
             if credential.accountname==accountname:
                 return accountname
 
+    @classmethod
+    def display_credential(cls):
+        """
+        Method which displays all current credentials
+        """
+        return cls.credential_list
+

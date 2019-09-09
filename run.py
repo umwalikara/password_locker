@@ -29,16 +29,16 @@ def create_credential(accountname,username,password):#creating credential
     return new_credential
 
 def save_credential(credential): #function to save crede
-    credential.save_credential
+    credential.save_credential()
 
 def del_credential(credential): #function to delete crede
-    credential.delete_credential
+    credential.delete_credential()
 
 def find_credential(accountname): #function that finding credential
     return Credential.find_by_accountname(accountname)
 
 def check_existing_credential(accountname): #Function that check if a contact exists with that accountname
-    return Credential.credential_exist(accountname)
+    return Credential.find_by_accountname(accountname)
 
 def display_credential(): #Function that returns all the saved contacts
     return Credential.display_credential()
@@ -66,99 +66,100 @@ def main():
             print("enter password")
             password=input()
 
-        while username!=username or password!=password:
-            print("you entered wrong username or password")
-            print("username")
-            username=input()
-            print("your password")
-            password=input()
+            while username!=username or password!=password:
+                print("you entered wrong username or password")
+                print("username")
+                username=input()
+                print("your password")
+                password=input()
 
-        else:
-            print(f"welcome:{username} to your Account")
-            print('\n')
+            else:
+                print(f"welcome:{username} to your Account")
+                print('\n')
 
-        while True:
-            print("v: view your saved credentials")
-            print("c: create new credential")
-            print("d: delete credential")
-            print("l: log out")
-            Choose=input().lower()
+            while True:
+                print("v: view your saved credentials")
+                print("c: create new credential")
+                print("d: delete credential")
+                print("l: log out")
+                Choose=input().lower()
 
-            if Choose =='c':
-                while True:
-                    print("enter accountname")
-                    accountname=input()
-                    print("enter password")
-                    print("to generate a random password, enter 'gp' or to create password, enter 'cp' ")
-                    keyword=input().lower()
-                    if keyword=="gp":
-                        password=random.randint(22222,22222)
-                        print(f"account: {accountname}")
-                        print(f"username: {username}")
-                        print(f"password: {password}")
-                        print('\n')
-                        break
-
-                    elif keyword=='cp':
-                        print("create your password")
+                if Choose =='c':
+                    while True:
+                        print("enter accountname")
                         accountname=input()
-                        print(f"account{accountname}")
-                        print(f"username{username}")
-                        print(f"password{password}")
-                        print('\n')
-
-                    else:
-                        print("please enter a valid code")
-                        new_credential(new_credential(accountname, username, password))
-                    # elif choise=='n':
-                    #     break
-            if Choose=='v':
-                while True:
-                    print("a list of your credentials")
-                    if display_credential():
-
-                        for credential in display_credential():
-                            print(f"AccountName:{credential.accountname}")
-                            print(f"UserName:{credential.username}")
-                            print(f"Password:{credential.password}")
-
-                    else:
-                        print('\n')
-                        print("you don't seem to have any credential yet")
-                        print('\n')
-                        break
-
-            elif Choose=='d':
-                while True:
-                    print("Choose credential to delete")
-                    search_name=input()
-                    if check_existing_credential(search_name):
-
-                        search_credential=find_credential(search_name)
-                        print(f"Accountname:{search_credential.accountname}\n UserName:{search_credential.username}\n Password:{search_credential.password}")
-                        print("delete? y/n")
-                        sure=input().lower()
-                        if sure=='y':
-                            delete_credential(search_credential)
-                            print("Account deleted")
+                        print("enter password")
+                        print("to generate a random password, enter 'gp' or to create password, enter 'cp' ")
+                        keyword=input().lower()
+                        if keyword=="gp":
+                            password=random.randint(22222,22222)
+                            print(f"account: {accountname}")
+                            print(f"username: {username}")
+                            print(f"password: {password}")
+                            print('\n')
                             break
-                        elif sure=='n':
-                            continue
+
+                        elif keyword=='cp':
+                            print("create your password")
+                            accountname=input()
+                            print(f"account{accountname}")
+                            print(f"username{username}")
+                            print(f"password{password}")
+                            print('\n')
+
                         else:
-                            print("your credential does not exist.")
-                    
-            elif Choose=='l':
-                print("are you sure, you want to log out? y/n")
-                logout-input().lower()
-                if logout=='y':
-                    print("logout successfully.")
-                    break
-                else:
-                    logout=='n'
-                    continue
+                            print("please enter a valid code")
+                            save_credential(save_credential(accountname,username,password))
 
+                if Choose=='v':
+                    while True:
+                        print("a list of your credentials")
+                        if display_credential():
 
+                            for credentials in display_credential():
+                                print(f"AccountName:{accountname}")
+                                print(f"UserName:{username}")
+                                print(f"Password:{password}")
 
+                        else:
+                            print('\n')
+                            print("you don't seem to have any credential yet")
+                            print('\n')
+                            break
+
+                elif Choose=='d':
+                    while True:
+                        print("Choose credential to delete")
+                        search_name=input()
+                        if find_credential(search_name):
+
+                            search_credential=find_credential(search_name)
+                            print(f"Accountname:{search_credential.accountname}\n UserName:{search_credential.username}\n Password:{search_credential.password}")
+                            print("delete? y/n")
+                            sure=input().lower()
+                            if sure=='y':
+                                delete_credential(search_credential)
+                                print("Account deleted")
+                                break
+                            elif sure=='n':
+                                continue
+                        else:
+                                print("your credential does not exist.")
+                                break
+
+                elif Choose=='l':
+                    print("are you sure, you want to log out? y/n")
+                    logout-input().lower()
+                    if logout=='y':
+                        print("logout successfully.")
+                        break
+                    else:
+                        logout=='n'
+                        continue
+        elif short_code=='ex':
+            break
+        else:
+            print("please enter a valid code to continue")
 
 if __name__=='__main__':
     main()
